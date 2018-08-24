@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="singlePost">
+    <!-- <ul *ngFor="let post of post$"> -->
+      <ul>
+      <!-- <li>{{ post.id }}</li> -->
+      <li>{{ (post$ | async)?.userId }}</li>
+      <li>{{ (post$ | async )?.title}}</li>
+      <li>{{ (post$ | async )?.body}}</li>
+
+    </ul>
+    <!-- {{ post$ | async }} -->
+    
+    
+  </div>
+  <div>
+    {{ time | async}}
+  </div>
+</div>

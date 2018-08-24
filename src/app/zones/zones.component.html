@@ -1,0 +1,9 @@
+<h2>Demo: NgZone</h2>
+
+    <p>Progress: {{progress}}%</p>
+    <p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
+
+    <button (click)="processWithinAngularZone()">Process within Angular zone</button>
+    <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
+
+    <p>:: Podemos ver como el progreso dentro de la zona de Angular se mantiene constante puesto que se dispara el change detector en cada cambio, por el contrario, al correrlo fuera de la zona de angular, esta no se renderiza hasta su finalización.</p>

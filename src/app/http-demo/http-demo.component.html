@@ -1,0 +1,18 @@
+<h4>Lista de localizaciones</h4>
+<ul *ngIf="locations">
+  <!-- <li *ngFor="let location of locations['data']"> -->
+    <li *ngFor="let location of locations">
+    <!-- <li> -->
+     {{ location.identificador }}: {{ location.direccion }}
+     <!-- {{locations?["data"]["identificador"]}} -->
+  </li>
+</ul>
+<hr>
+<h4>Usuario en función de la localización</h4>
+<ul>
+  <li> {{user?.userId}} </li>
+  <li> {{user?.id}} </li>
+  <li> {{user?.title}} </li>
+  <li> {{user?.body}} </li>
+</ul>
+
