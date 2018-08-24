@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ZonesComponent } from './zones/zones.component';
 import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { BookOflineComponent } from './book-ofline/book-ofline.component';
+import { InsideSubscribeComponent } from './inside-subscribe/inside-subscribe.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BookOflineComponent } from './book-ofline/book-ofline.component';
     AsyncPipesDemoComponent,
     ZonesComponent,
     HttpDemoComponent,
-    BookOflineComponent
+    BookOflineComponent,
+    InsideSubscribeComponent
   ],
   imports: [
     BrowserModule,

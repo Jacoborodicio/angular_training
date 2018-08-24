@@ -1,16 +1,46 @@
-import { Component, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-zones',
   templateUrl: './zones.component.html',
   styleUrls: ['./zones.component.css']
 })
-export class ZonesComponent {
+export class ZonesComponent implements OnInit {
   progress: number = 0;
   label: string;
 
-  constructor(private _ngZone: NgZone) {}
+  posts: any;
+  url_posts: string = "https://jsonplaceholder.typicode.com/posts";
 
+
+  constructor(
+    private _ngZone: NgZone,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit() {
+    console.log("antes");
+    // this.getPosts();
+    this.getPostsZone();
+    console.log("después");
+  }
+
+  getPosts() {
+    this.http.get(this.url_posts).subscribe((data => {
+      console.log(data);
+      this.posts = data;
+      // console.log("después dentro del método");
+    }))
+  }
+  getPostsZone() {
+    this._ngZone.runOutsideAngular(() => {
+      this.getPosts();
+      this._ngZone.run(() => {
+        console.log("Dentro del tema de zone, posts: ", this.posts);
+      })
+    })
+  }
   // Loop inside the Angular zone
   // so the UI DOES refresh after each setTimeout cycle
   processWithinAngularZone() {
