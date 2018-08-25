@@ -1,12 +1,22 @@
+<h2>Single Post: </h2>
 <p>
-  {{post?.userId}}
+  UserId: {{post?.userId}} || Id: {{post?.id}} || Title: {{post?.title}} || Body: {{post?.body}}
 </p>
-<p>
-  {{post?.id}}
-</p>
-<p>
-  {{post?.title}}
-</p>
-<p>
-  {{post?.body}}
-</p>
+<hr>
+<hr>
+<table>
+  <thead>
+    <th>UserId</th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Body</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <th>{{post.userId}}</th>
+      <th>{{post.id}}</th>
+      <th>{{post.title}}</th>
+      <th>{{post.body}}</th>
+    </tr>
+  </tbody>
+</table>

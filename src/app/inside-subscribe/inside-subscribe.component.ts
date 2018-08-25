@@ -20,8 +20,10 @@ export class InsideSubscribeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.metodoCombinado();
-    console.log(this.post);
+    // this.metodoCombinado();
+    // this.combinadoDemo();
+    this.aux();
+    console.log("Post desde ngOnInit(): ", this.posts);
   }
 
   getPosts(): Observable<any> {
@@ -41,5 +43,17 @@ export class InsideSubscribeComponent implements OnInit {
         this.post = item;
       });
     })
+  }
+
+  async combinadoDemo() {
+    return await this.getPosts().toPromise();
+  }
+
+  aux() {
+    this.combinadoDemo().then(data => {
+      this.posts = data;
+      console.log("Dentro de aux, posts: ", this.posts);
+
+    });
   }
 }
